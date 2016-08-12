@@ -7,7 +7,7 @@ import (
 	"path"
 
 	bp "github.com/nexustix/boilerplate"
-	nrc "github.com/nexustix/nxReplicatorCommon"
+	nrc "github.com/nxReplicator/nxReplicatorCommon"
 )
 
 //nxreplicator install amazingBulk /home/sam/amazingBulk
