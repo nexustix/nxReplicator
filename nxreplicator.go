@@ -13,8 +13,9 @@ import (
 //nxreplicator install amazingBulk /home/sam/amazingBulk
 
 func main() {
-	//fmt.Printf("Hello World Mk III\n")
-	//fmt.Println("Hello World")
+	version := "V.0-1-0"
+	fmt.Printf("<-> NxAtomize Version: %s\n", version)
+
 	args := os.Args
 
 	usr, err := user.Current()
