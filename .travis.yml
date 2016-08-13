@@ -1,0 +1,19 @@
+language: go
+go:
+- 1.6
+install:
+- go get github.com/nexustix/boilerplate
+- go get github.com/nxReplicator/nxReplicatorCommon
+before_deploy:
+- env GOOS=linux GOARCH=amd64 go build -o ${HOME}/dist/linux64/nxreplicator github.com/nxReplicator/nxreplicator
+- env GOOS=windows GOARCH=amd64 go build -o ${HOME}/dist/windows64/nxreplicator.exe github.com/nxReplicator/nxreplicator
+deploy:
+  provider: releases
+  api_key:
+    secure: AlMJ1bgyQhQhNHj6cQlwMFX2e1Igm+3x/HUdj1Ib3MWzzdBaWvG8ufu9HILSQuzZ+dVqtRaBTSFY3QZxSleL7tcoSUJn1IptepZlCL9o8Mo/7OeDIVCNx+41k9ymg2380/mCp930bzrw9u3BW1M3CkP6dyRyWbTEJ7bV8vC5Y868KYbiRJz8zpL3h2cP8pwozUWn4dPEmcpuvhRsSm2Gzmp6tBlru430V9ARVRJC1DV8NWOxr6HBWrs/LD/v40IP65uh/DJY3RYgydyZGIXl4cIsDXPRd+k68plOqCj34ShquFoaRtTB/arxpeM4F2l9y2C1oqipiTpAHczjjhFDMaN39FMYd2qhhu2qSKd5+cyAJ79yqR6rVh6pAc35+2cV0qyF+GVktURG8OELSFTRN1+6hGXPDvKrD1D9nch/tdzDCvqRABTp8n1oFgjTGXIU8BILA6HAh6MvXasIaQd+HSqi5uqhnZfhrptOVEAPA/Ognbp4ju1xFsFwkC2WARPFCv8oJH4VlNetzK+dLXnPsDPup7PkD6/LOywklSRsDp1jAAsbynScdmRaoStSGdQ7R3cCXqSXbOTc+Wq5etsXbQV/FAxWZkMHhV8lyQK/bZQOXCEQx7tyFTma768H9b2FrKv+1GKYdWt8m9mgQkltuSAkGvtVGdmcHwcAK4L1yeg=
+  file:
+    - "${HOME}/dist/windows64/nxreplicator.exe"
+    - "${HOME}/dist/linux64/nxreplicator"
+  skip_cleanup: true
+  on:
+    tags: true
