@@ -14,7 +14,7 @@ import (
 
 func main() {
 	version := "V.0-1-0"
-	fmt.Printf("<-> NxAtomize Version: %s\n", version)
+	fmt.Printf("<-> NxReplicator Version: %s\n", version)
 
 	args := os.Args
 
