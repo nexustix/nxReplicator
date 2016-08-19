@@ -5,3 +5,9 @@ Downloads "Bulk"s
 
 ###### Install "Bulk"
 nxreplicator **install** < bulkID> < destination>
+
+###### Fetch "Bulk" from remote adress
+nxreplicator **get** < bulkID> < remoteAdress>
+
+###### list every "Bulk" installed
+nxreplicator **list**

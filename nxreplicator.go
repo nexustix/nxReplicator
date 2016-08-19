@@ -13,8 +13,10 @@ import (
 //nxreplicator install amazingBulk /home/sam/amazingBulk
 
 func main() {
-	version := "V.0-1-0"
+	version := "V.0-1-2"
 	fmt.Printf("<-> NxReplicator Version: %s\n", version)
+
+	debug := false
 
 	args := os.Args
 
@@ -30,14 +32,24 @@ func main() {
 
 	action := bp.StringAtIndex(1, args)
 	bulkID := bp.StringAtIndex(2, args)
-	destination := bp.StringAtIndex(3, args)
+	three := bp.StringAtIndex(3, args)
+	//four := bp.StringAtIndex(4, args)
 	//atomID := bp.StringAtIndex(4, args)
 
-	fmt.Printf("%s | %s | %s\n", action, bulkID, destination)
+	//fmt.Printf("%s | %s | %s\n", action, bulkID, three)
+	bp.PrintStringSlice(args, debug)
 
 	switch action {
 	case "install":
-		installBulk(bulkID, bulkDir, destination)
+		installBulk(bulkID, bulkDir, three)
+	case "get":
+		if (bulkID != "") && (three != "") {
+			bp.DownloadRemoteFile(path.Join(bulkDir, bulkID+".nxrb"), three)
+		}
+	case "list":
+		for k, v := range bp.GetFilesInDir(bulkDir) {
+			fmt.Printf("(%v) %s\n", k, v)
+		}
 	}
 }
 
