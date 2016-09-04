@@ -16,7 +16,7 @@ func main() {
 	version := "V.0-1-2"
 	fmt.Printf("<-> NxReplicator Version: %s\n", version)
 
-	debug := false
+	debug := true
 
 	args := os.Args
 
