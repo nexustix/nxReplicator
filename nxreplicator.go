@@ -13,7 +13,7 @@ import (
 //nxreplicator install amazingBulk /home/sam/amazingBulk
 
 func main() {
-	version := "v0.1.3"
+	version := "v0.1.4"
 	fmt.Printf("<-> NxReplicator Version: %s\n", version)
 
 	debug := true
